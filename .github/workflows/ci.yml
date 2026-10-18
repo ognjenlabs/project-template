@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  python:
+    uses: ognjenlabs/.github/.github/workflows/python-ci.yml@main
+
+  # The one check branch rules require, so jobs can change without editing the rules.
+  ci-ok:
+    name: ci-ok
+    if: always()
+    needs: [python]
+    runs-on: ubuntu-24.04
+    steps:
+      - run: test "${{ needs.python.result }}" = success
