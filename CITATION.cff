@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Project name"
+authors:
+  - family-names: "Jovanović"
+    given-names: "Ognjen"
+repository-code: "https://github.com/ognjenlabs/project-template"
+license: Apache-2.0

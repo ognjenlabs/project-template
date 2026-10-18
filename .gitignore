@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+
+# Node
+node_modules/
+
+# Rust
+target/
+
+# Data, weights and run outputs stay out of git
+data/
+checkpoints/
+runs/
+wandb/
+*.safetensors
+*.ckpt
+*.pt
+*.onnx
+*.gguf
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Editors and OS
+.DS_Store
+.idea/
+.vscode/
